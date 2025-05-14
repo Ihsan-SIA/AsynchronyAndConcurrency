@@ -15,36 +15,82 @@
 //    }
 //}
 
-Task task1 = PrintTime();
+//Task task1 = PrintTime();
 //Task task2 = ClearTime();
-await Task.WhenAll(task1);
-int num = 0;
-while (num < 11)
-{
-    Console.Clear();
-    await Task.Delay(50);
-    num++;
-}
+//await Task.WhenAll(task1);
 
-async Task PrintTime()
-{
-    int num =0;
-    while (num<11)
-    {
-        Console.WriteLine(DateTime.Now);
-        await Task.Delay(1000);
-        num++;
-    }
-    
-}
+
+//async Task PrintTime()
+//{
+//    int num =0;
+//    while (num<11)
+//    {
+//        await Task.Delay(1000);
+//        Console.WriteLine(DateTime.Now);
+//        num++;
+//    }
+
+//}
 //async Task ClearTime()
 //{
 //    int num = 0;
 //    while (num < 11)
 //    {
+//        await Task.Delay(1000);
 //        Console.Clear();
-//        await Task.Delay(50);
 //        num++;
 //    }
-    
+
 //}
+
+
+
+
+
+public class StopWatch
+{
+    public void Menu()
+    {
+        while (true)
+        {
+            var watch = new Run();
+            Console.WriteLine("Click enter key to start or any other key to end app");
+            var start = Console.ReadLine()!;
+            switch (start)
+            {
+                case "":
+                    Console.WriteLine("STOPWATCH IS COUNTING....");
+                    var startTime = watch.Start(DateTime.Now);
+                    Console.WriteLine("Press enter key to stop");
+                    var stop = Console.ReadKey()!;
+                    var endTime = char.IsWhiteSpace(stop.KeyChar) ? $"The duration time is: {watch.Stop(startTime)}s. Press any key to continue" : "\nInvalid! Click any key to start stopwatch again";
+                    Console.WriteLine(endTime);
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
+                default: return;
+            }
+
+        }
+    }
+    class Run
+    {
+        public DateTime StartTime { get; private set; }
+        public DateTime EndTime { get; set; }
+        public Run()
+        {
+            StartTime = DateTime.Now;
+        }
+        public DateTime Start(DateTime start)
+        {
+            StartTime = start;
+            return StartTime;
+        }
+        public TimeSpan Stop(DateTime start)
+        {
+            EndTime = start;
+            TimeSpan totalTime = DateTime.Now - EndTime;
+            return totalTime;
+        }
+    }
+}
