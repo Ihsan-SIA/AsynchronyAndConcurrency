@@ -15,33 +15,62 @@
 //    }
 //}
 
-Task task1 = PrintTime();
-Task task2 = ClearTime();
-await Task.WhenAll(task1);
 
 
-async Task PrintTime()
+static async Task Main(string[] args)
 {
-    int num = 0;
-    while (num < 11)
-    {
-        await Task.Delay(1000);
-        Console.WriteLine(DateTime.Now);
-        num++;
-    }
+    LongProcess();
+
+    ShortProcess();
+}
+
+static async void LongProcess()
+{
+    Console.WriteLine("LongProcess Started");
+
+    await Task.Delay(4000); // hold execution for 4 seconds
+
+    Console.WriteLine("LongProcess Completed");
 
 }
-async Task ClearTime()
-{
-    int num = 0;
-    while (num < 11)
-    {
-        await Task.Delay(1000);
-        Console.Clear();
-        num++;
-    }
 
+static void ShortProcess()
+{
+    Console.WriteLine("ShortProcess Started");
+
+    //do something here
+
+    Console.WriteLine("ShortProcess Completed");
 }
+
+//Task task1 = PrintTime();
+//Task task2 = ClearTime();
+//await Task.WhenAll(task1);
+
+
+//async Task PrintTime()
+//{
+//    int num = 0;
+//    while (num < 11)
+//    {
+//        await Task.Delay(1000);
+//        Console.WriteLine(DateTime.Now);
+//        num++;
+//    }
+
+//}
+//async Task ClearTime()
+//{
+//    int num = 0;
+//    while (num < 11)
+//    {
+//        await Task.Delay(1000);
+//        //Console.Clear();
+//        Console.WriteLine("");
+//        num++;
+//    }
+
+//}
 
 
 
