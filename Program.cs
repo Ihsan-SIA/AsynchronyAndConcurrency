@@ -22,6 +22,13 @@ stopwatch.Menu();
 public class StopWatch
 {
     public async Task PrintTime(string time, int delayTime)
+    {
+        var watch = new Run();
+        time = watch.Start(DateTime.Now).ToString();
+        Console.WriteLine(time);
+        await Task.Delay(delayTime);
+        Console.Clear();
+    }
     public void Menu()
     {
         while (true)
@@ -35,6 +42,10 @@ public class StopWatch
                     Console.WriteLine("STOPWATCH IS COUNTING....");
                     var startTime = watch.Start(DateTime.Now);
                     Console.WriteLine("Press enter key to stop");
+                    while (true)
+                    {
+                        Task task1 = PrintTime(startTime.ToString(), 100);
+                    }
                     var stop = Console.ReadKey()!;
                     var endTime = char.IsWhiteSpace(stop.KeyChar) ? $"The duration time is: {watch.Stop(startTime)}s. Press any key to continue" : "\nInvalid! Click any key to start stopwatch again";
                     Console.WriteLine(endTime);
