@@ -17,10 +17,10 @@
 
 
 
-
-
-
-
+public class Comments
+{
+    public void ViewComments
+}
 
 LongProcess();
 
