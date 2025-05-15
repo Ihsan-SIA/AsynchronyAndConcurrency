@@ -6,6 +6,9 @@ internal class Program
         //Task<int> result = Result();
         //await Task.Delay(1000);
         //JustPrint();
+        LongProcess();
+
+        ShortProcess();
     }
     //static async Task<int> Result()
     //{
