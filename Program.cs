@@ -20,11 +20,14 @@
 
 
 
+RunAsync();
+static async void RunAsync()
+{
+    LongProcess();
+    await Task.Delay(0);
+    ShortProcess();
+}
 
-
-LongProcess();
-
-ShortProcess();
 
 static async void LongProcess()
 {
