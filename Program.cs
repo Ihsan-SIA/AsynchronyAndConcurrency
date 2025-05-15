@@ -16,36 +16,32 @@
 //}
 
 //Task task1 = PrintTime();
-await PrintTime();
-await ClearTime();
-Task task2 = ClearTime();
+//Task task2 = ClearTime();
 //await Task.WhenAll(task1, task2);
 
 
+//async Task PrintTime()
+//{
+//    int num = 0;
+//    while (num < 11)
+//    {
+//        await Task.Delay(1000);
+//        Console.WriteLine(DateTime.Now);
+//        num++;
+//    }
 
+//}
+//async Task ClearTime()
+//{
+//    int num = 0;
+//    while (num < 11)
+//    {
+//        await Task.Delay(1000);
+//        Console.Clear();
+//        num++;
+//    }
 
-async Task PrintTime()
-{
-    int num = 0;
-    while (num < 11)
-    {
-        await Task.Delay(1000);
-        Console.WriteLine(DateTime.Now);
-        num++;
-    }
-
-}
-async Task ClearTime()
-{
-    int num = 0;
-    while (num < 11)
-    {
-        await Task.Delay(1000);
-        Console.Clear();
-        num++;
-    }
-
-}
+//}
 
 
 
