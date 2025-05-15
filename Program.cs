@@ -3,42 +3,29 @@ internal class Program
 {
     private static async Task Main(string[] args)
     {
-        //Task<int> result = Result();
+        Task<int> result = Result();
         //await Task.Delay(1000);
-        //JustPrint();
-        LongProcess();
-
-        ShortProcess();
+        var final = await result;
+        Task task1 = AMeth();
+        JustPrint();
     }
-    //static async Task<int> Result()
-    //{
-    //    int result = 2 + 2;
-    //    Console.WriteLine("Getting result, please wait....");
-    //    await Task.Delay(3000);
-    //    return result;
-    //}
-    //static void JustPrint()
-    //{
-    //    Console.WriteLine("The other method has gone to get results of 2 + 2");
-    //}
-    
-
-    static async void LongProcess()
+    static async Task<int> Result()
     {
-        Console.WriteLine("LongProcess Started");
-
-        await Task.Delay(4000); // hold execution for 4 seconds
-
-        Console.WriteLine("LongProcess Completed");
-
+        int result = 2 + 2;
+        Console.WriteLine("Getting result, please wait....");
+        await Task.Delay(3000);
+        Console.WriteLine(result);
+        return result;
     }
-
-    static void ShortProcess()
+    static async Task AMeth()
     {
-        Console.WriteLine("ShortProcess Started");
-
-        //do something here
-
-        Console.WriteLine("ShortProcess Completed");
+        Console.WriteLine("This is AMeth");
+        await Task.Delay(1000);
+        Console.WriteLine("You we just waited 1 second");
     }
+    static void JustPrint()
+    {
+        Console.WriteLine("The other method has gone to get results of 2 + 2");
+    }
+
 }
