@@ -15,11 +15,9 @@
 //    }
 //}
 
-
-
 Task task1 = PrintTime();
 Task task2 = ClearTime();
-await Task.WhenAll(task1);
+await Task.WhenAll(task1, task2);
 
 
 async Task PrintTime()
@@ -39,8 +37,7 @@ async Task ClearTime()
     while (num < 11)
     {
         await Task.Delay(1000);
-        //Console.Clear();
-        Console.WriteLine("");
+        Console.Clear();
         num++;
     }
 
